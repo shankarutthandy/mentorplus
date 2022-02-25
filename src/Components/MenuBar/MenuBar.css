@@ -1,0 +1,42 @@
+.menubar{
+    /* position: fixed; */
+    background-color: rgb(250, 250, 250);
+    transition: all 450ms;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1;
+    width: 0;
+    height:93vh;
+    opacity: 0;
+}
+.menubar.active{
+    transition: all 450ms;
+    opacity: 1;
+    flex:2;
+
+}
+.title{
+    font-size: xx-large;
+    font-weight: bold;
+}
+.menu-item{
+    width:75%;
+    height:10%;
+    max-height: 40px;
+    background-color: #b3e5fc;
+    margin-top: 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+.menu-item.active{
+    background-color: rgb(49, 156, 218)
+}
+.menu-item:active{
+    background-color: rgb(10, 107, 163)
+}
