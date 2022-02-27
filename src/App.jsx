@@ -1,4 +1,4 @@
-import { useState ,useEffect} from 'react';
+import { useState ,useEffect, useRef} from 'react';
 import './App.css';
 import NavBar from "./Components/NavBar/NavBar";
 import MenuBar from "./Components/MenuBar/MenuBar";
@@ -39,6 +39,8 @@ function App() {
   const [sidebar,setSideBar]=useState(false);
   const [selectedPage,setSelectedPage]=useState({home:true,profile:false});
   const [slots,setSlots]=useState([]);
+  const [dropDown,setDropState]=useState([false,false,false])
+  const homeRef=useRef(null)
   useEffect(()=>{
     var tmp=[];
      data.forEach((ele)=>{
@@ -71,6 +73,10 @@ function App() {
      })
  setSlots(tmp);
  },[])
+ useEffect(()=>{
+    if(dropDown[0]||dropDown[1]||dropDown[2])homeRef.current.style.opacity="0.2";
+    else homeRef.current.style.opacity="1";
+ },[dropDown])
   const setPage=(path)=>{
     if(path=="home")
       setSelectedPage({home:true,profile:false});
@@ -79,10 +85,17 @@ function App() {
   }
   return (
     <>
-    <NavBar onMenuClick={()=>setSideBar(!sidebar)}/>
+    <NavBar onMenuClick={()=>{
+      if(!sidebar)homeRef.current.style.opacity="0.2";
+      else homeRef.current.style.opacity="1";
+      setSideBar(!sidebar);
+    }}
+    dropDown={dropDown}
+    setDropState={setDropState}
+    />
     <div style={{display:'flex'}}>
-    <MenuBar sidebar={sidebar} setPage={setPage} home={selectedPage.home} profile={selectedPage.profile}/>
-    <Home onClose={()=>setSideBar(false)} slots={slots}/>
+    <MenuBar onClose={()=>{homeRef.current.style.opacity="1";setSideBar(false)}} sidebar={sidebar} setPage={setPage} home={selectedPage.home} profile={selectedPage.profile}/>
+    <Home onClose={()=>{homeRef.current.style.opacity="1";setSideBar(false)}} ref={homeRef} slots={slots}/>
     </div>
     </>
   );

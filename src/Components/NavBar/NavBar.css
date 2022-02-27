@@ -2,6 +2,112 @@
     height:7vh;
     width:100vh;
     z-index: 0;
+    display: flex;
+    width: 100vw;
+}
+.navbar-left{
+    flex:1;
+    height: 100%;
+}
+.navbar-center{
+    flex:3;
+    font-size: 2em;
+    font-weight: 500;
+    text-align:end;
+    letter-spacing: 3px;
+    line-height: 4vh;
+}
+
+.navbar-right{
+    flex:6;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1em;
+    font-weight: 400;
+}
+.dropdown{
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+    margin: 0;
+    margin-right: 40px;
+}
+.logout{
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 8px;
+    background-color: rgb(200, 1, 1);
+    color:white;
+    margin-right: 10px;
+}
+.logout:active{
+    background-color: black;
+}
+.dropdown:hover{
+    color:rgb(200, 1, 1);
+}
+.drop{
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+.dropdown:hover .dropeff{
+    transform: rotate(180deg);
+}
+.table{
+    display: flex;
+    position: absolute;
+    top: 7vh;
+    border:1px solid black;
+    color:black;
+    background-color: white;
+    z-index: 1000;
+}
+.divisions{
+    display: flex;
+    flex-direction: column;
+    flex:5;
+    padding:20px 10px 20px 0px;
+    margin:0;
+    min-width: 230px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+.division-title{
+    white-space: nowrap;
+    margin: 0;
+    margin-top: 3px;
+    padding: 5px;
+    padding-left:10px;
+    border: none;
+    border-radius: 0 10px 10px 0;
+}
+.division-title.uni{
+    text-align: center;
+    border-radius: 10px;
+}
+.divisions.uni{
+    padding: 20px 10px 20px 10px;
+    letter-spacing: 1px;
+}
+.division-title.active{
+    background-color: rgb(228, 72, 72);
+    color: white; 
+}
+.division-title:hover{
+    background-color: rgb(228, 72, 72);
+    color: white;
+}
+.division-title:nth-child(1){
+    margin-top: 0px;
+}
+.division-title.result:hover{
+    background-color: white;
+    color:red
 }
 .line{
     border: none;
