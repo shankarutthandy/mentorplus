@@ -40,6 +40,7 @@ function App() {
   const [selectedPage,setSelectedPage]=useState({home:true,profile:false});
   const [slots,setSlots]=useState([]);
   const [dropDown,setDropState]=useState([false,false,false])
+  const [popup,setPopup]=useState(false)
   const homeRef=useRef(null)
   useEffect(()=>{
     var tmp=[];
@@ -95,7 +96,10 @@ function App() {
     />
     <div style={{display:'flex'}}>
     <MenuBar onClose={()=>{homeRef.current.style.opacity="1";setSideBar(false)}} sidebar={sidebar} setPage={setPage} home={selectedPage.home} profile={selectedPage.profile}/>
-    <Home onClose={()=>{homeRef.current.style.opacity="1";setSideBar(false)}} ref={homeRef} slots={slots}/>
+    <Home onClose={()=>{homeRef.current.style.opacity="1";setSideBar(false)}} ref={homeRef} slots={slots} pay={()=>setPopup(true)}/>
+    {/* <Modal>
+      Message for popup
+    </Modal> */}
     </div>
     </>
   );
