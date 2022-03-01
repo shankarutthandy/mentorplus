@@ -2,6 +2,7 @@ import { useState ,useEffect, useRef} from 'react';
 import './App.css';
 import NavBar from "./Components/NavBar/NavBar";
 import MenuBar from "./Components/MenuBar/MenuBar";
+import Modal from "./Components/Modal/Modal";
 import Home from "./Components/Home/Home";
 import data from './slots.json'
 function dayFromDate(date,month,year)
@@ -97,9 +98,9 @@ function App() {
     <div style={{display:'flex'}}>
     <MenuBar onClose={()=>{homeRef.current.style.opacity="1";setSideBar(false)}} sidebar={sidebar} setPage={setPage} home={selectedPage.home} profile={selectedPage.profile}/>
     <Home onClose={()=>{homeRef.current.style.opacity="1";setSideBar(false)}} ref={homeRef} slots={slots} pay={()=>setPopup(true)}/>
-    {/* <Modal>
-      Message for popup
-    </Modal> */}
+    <Modal popup={popup} close={()=>setPopup(false)}>
+        <span style={{fontSize:"xx-large",fontWeight:"bolder"}}>Success❤️‍🔥</span>
+    </Modal>
     </div>
     </>
   );

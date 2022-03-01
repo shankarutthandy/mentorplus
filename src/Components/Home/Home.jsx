@@ -35,7 +35,7 @@ const Home=React.forwardRef((props,ref) =>{
         }))}
       </div>
     </div>
-    <button className="proceed-btn">Proceed to Pay</button>
+    <button className="proceed-btn" onClick={props.pay}>Proceed to Pay</button>
     </div>
     </>
   )
